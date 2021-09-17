@@ -8,7 +8,9 @@ def home(request):
     return render(request,'pages/home.html', data)
 
 def about(request):
-    return render(request,'pages/about.html')
+    context= Team.objects.all()
+    data={ 'teams': context, }
+    return render(request,'pages/about.html',data)
 
 def services(request):
     return render(request,'pages/services.html')
