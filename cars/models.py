@@ -4,8 +4,10 @@ from ckeditor.fields import RichTextField
 from multiselectfield import MultiSelectField
 
 # Create your models here.
+
+
 class Car(models.Model):
-    
+
     state_choice = (
         ('AL', 'Alabama'),
         ('AK', 'Alaska'),
@@ -62,7 +64,7 @@ class Car(models.Model):
 
     year_choice = []
     for i in range(2000, datetime.now().year+1):
-        year_choice.append((i,i))
+        year_choice.append((i, i))
 
     features_choices = (
         ('Cruise Control', 'Cruise Control'),
@@ -89,18 +91,18 @@ class Car(models.Model):
     )
 
     car_title = models.CharField(max_length=255)
-    state=models.CharField(choices=state_choice, max_length=100)
+    state = models.CharField(choices=state_choice, max_length=100)
     color = models.CharField(max_length=255)
     model = models.CharField(max_length=100)
-    year = models.IntegerField(('year'),choices=year_choice)
+    year = models.IntegerField(('year'), choices=year_choice)
     condition = models.CharField(max_length=100)
     price = models.IntegerField()
     description = RichTextField()
     car_photo = models.ImageField(upload_to='photos/%y/%m/%d/')
-    car_photo_1 = models.ImageField(upload_to='photos/%y/%m/%d/',blank=True)
-    car_photo_2= models.ImageField(upload_to='photos/%y/%m/%d/',blank=True)
-    car_photo_3 = models.ImageField(upload_to='photos/%y/%m/%d/',blank=True)
-    car_photo_4 = models.ImageField(upload_to='photos/%y/%m/%d/',blank=True)
+    car_photo_1 = models.ImageField(upload_to='photos/%y/%m/%d/', blank=True)
+    car_photo_2 = models.ImageField(upload_to='photos/%y/%m/%d/', blank=True)
+    car_photo_3 = models.ImageField(upload_to='photos/%y/%m/%d/', blank=True)
+    car_photo_4 = models.ImageField(upload_to='photos/%y/%m/%d/', blank=True)
     features = MultiSelectField(choices=features_choices)
     body_style = models.CharField(max_length=100)
     engine = models.CharField(max_length=100)
@@ -118,5 +120,3 @@ class Car(models.Model):
 
     def __str__(self):
         return self.car_title
-
-

@@ -1,0 +1,31 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+{% block branding %}
+
+<h1 id="head">
+    <img src="{% static 'img/logos/black-logo.png' %}" class="brand_img" alt="" height="50" width="">
+</h1>
+
+{% endblock %}
+{% block extrahead %}{{ block.super }}
+<style>
+    :root {
+        --primary: #9774d5;
+        --secondary: #785cab;
+        --link-fg: #7c449b;
+        --link-selected-fg: #8f5bb2;
+        --body-fg: #333;
+        --body-bg: #fff;
+        --body-quiet-color: #666;
+        --body-loud-color: #000;
+        --darkened-bg: #f8f8f8; /* A bit darker than --body-bg */
+        --selected-bg: #e4e4e4; /* E.g. selected table cells */
+        --selected-row: #ffc;
+    }
+
+</style>
+{% endblock %}
+
+{% block extrastyle %}
+    <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+{% endblock %}
